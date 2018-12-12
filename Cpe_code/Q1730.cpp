@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ctime>
 using namespace std;
 int main(int argc, const char * argv[]) {
     unsigned long long int enter;

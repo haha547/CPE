@@ -1,37 +1,27 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
-int countOne(int,int);
+int countf(int a, int b){
+    if(a == 1){
+        return b+1;
+    }
+    else if (a % 2 == 1){
+        b++;
+        return countf(a/2, b);
+    }
+    else {
+        return countf(a/2, b);
+    }
+}
 int main() {
-    int a,b;
-    int caseTime = 0;
-    while (cin >> a >> b ){
-        if (a <=0 && b <=0){
-            break;
+    unsigned long long int n ,m;
+    int counting = 1;
+    while (cin >> n >> m && n != 0 && m!= 0){
+        int ans =0;
+        for (int i = n ; i <= m ; i ++){
+            ans += countf(i ,0);
         }
-
-        int tempNum = log2(b)+1;
-        int sumOne = 0;
-        for (int i = a ; i <= b ; i++) {
-            sumOne = sumOne + countOne(i,tempNum);
-        }
-        caseTime++;
-        cout << "Case " << caseTime << ": " << sumOne << endl;
+        cout << "Case " << counting << ": " << ans << endl;
+        counting ++;
     }
     return 0;
-}
-
-int countOne(int a, int b){
-    int test[b];
-    int countO = 0;
-    for (int i = b-1 ; i >= 0 ; i--) {
-        test[i] = a%2;
-        a=a/2;
-    }
-    for (int i = 0 ; i < b ; i++ ) {
-        if (test[i] == 1 ) {
-            countO++;
-        }
-    }
-    return countO;
 }
