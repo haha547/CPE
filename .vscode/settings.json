@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "iomanip": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "cstdio": "cpp"
     }
 }
